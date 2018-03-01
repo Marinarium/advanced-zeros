@@ -1,5 +1,6 @@
 module.exports = function getZerosCount(number, base) {
-  var i = 0; 
+  var i = 0;
+ 
   while (number > 0) {
     number = Math.floor(number / getLargestPrime(base));
     i = i + number;
@@ -18,6 +19,15 @@ function getLargestPrime(base) {
       arrayOfPrimes.sort(compareNumbers);
       largestPrime = arrayOfPrimes[0];      
   }
+  if (arrayOfPrimes[0] == arrayOfPrimes[1]) {
+    var counter = 0;
+    for (let i = 0; i < arrayOfPrimes.length; i++){
+      if (arrayOfPrimes[0] == arrayOfPrimes[i]){
+        counter++;
+      }
+  }
+	largestPrime = arrayOfPrimes[0] * counter - (counter - 1);
+}
   return largestPrime;
 }
 
